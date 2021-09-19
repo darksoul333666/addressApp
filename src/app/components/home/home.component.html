@@ -1,0 +1,41 @@
+
+<div class="container-fluid">
+    <label ><h1>Busque una dirección y guárdela </h1></label>
+
+</div>
+<div class="container-fluid">
+    <div class="map">
+        <input class="form-control" id="busqueda" placeholder="Busque su sitio" ngx-google-places-autocomplete 
+        [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+    
+        <agm-map [longitude]="address.longitud"  [zoom]="zoom" [latitude]="address.latitud">
+            <agm-marker [longitude]="address.longitud" [latitude]="address.latitud"></agm-marker>
+        </agm-map>
+    </div>
+    
+    <div class="form">
+        <label class="form-control"> <p>Dirección:</p>          <h2>{{address.Direccion}}</h2> </label>
+        <label class="form-control"> <p>Latitud:</p>         <h2>{{address.latitud}}</h2> </label>
+        <label class="form-control"> <p>Longitud:</p>          <h2>{{address.longitud}}</h2> </label>
+        <label class="form-control"> <p>Teléfono:</p>         <h2>{{address.number}}</h2> </label>
+
+        <label ><h3>Elija un nombre para su dirección </h3></label>
+        <input class="form-control" type="text" [(ngModel)]="address.Nombre"> 
+        <div id="buttonDiv">
+            <button class="btn btn-primary" type="button" (click)="setAdress()">Guardar posicion</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
